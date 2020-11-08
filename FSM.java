@@ -67,7 +67,7 @@ public class FSM {
 				
 				exitDescription += separator + transitionVerbs.get(col);
 				separator = ", ";
-
+				
 			} //if
 		
 		} //for
