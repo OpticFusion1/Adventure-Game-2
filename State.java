@@ -16,17 +16,21 @@ public class State {
 
 	}
 
-	public void removeThing(String thing) {
+	public void removeThing(String thing) throws Exception {
 
 		if (!inventory.contains(thing)) {
 
-			throw new Exception(String.format("There is no %s in here", thing));
-	
+			throw new Exception(String.format("There is no %s in your inventory", thing));
+			
+		} else {
+			
+			inventory.remove(thing);
+
 		}
 	
 	}
 
-	public void addThing(String thing) {
+	public void addThing(String thing) throws Exception {
 
 		if (inventory.contains(thing)) {
 			// we will throw an error
@@ -53,7 +57,7 @@ public class State {
 
 		} else {
 
-			return "There are no items in here";
+			return description;
 		
 		} 
 
@@ -65,4 +69,4 @@ public class State {
 
 	} // hasThing
 
-} //state
+} //class State

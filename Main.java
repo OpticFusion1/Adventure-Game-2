@@ -2,8 +2,7 @@ import java.util.* ;
 
 public class Main {
 
-	public static void main(String[] args) {
-			
+	public static void main(String[] args) {			
 
 		Player me = new Player(new String[] {"Bicycle", "Orange", "Jupiter"});
 
@@ -18,7 +17,10 @@ public class Main {
 			System.out.println(e.getMessage());
 
 		}
-
+		
+		
+		Scanner in = new Scanner(System.in);
+		System.out.println("This is working");
 	}
 
 }
