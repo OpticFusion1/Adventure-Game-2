@@ -17,11 +17,11 @@ public class Player {
 
 	public String getThings() {
 
-		return String.format("You are carrying:\n %s", inventory);
+		return String.format("You are carrying:\n%s", inventory);
 	
 	}
 
-	public void removeThing(String thing) {
+	public void removeThing(String thing) throws Exception{
 
 		if (!inventory.contains(thing)) {
 
@@ -35,7 +35,7 @@ public class Player {
 
 	}
 
-	public void addThing(String thing) {
+	public void addThing(String thing) throws Exception {
 
 		if (inventory.contains(thing)) {
 

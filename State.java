@@ -20,7 +20,7 @@ public class State {
 
 		if (!inventory.contains(thing)) {
 
-			// throw new Exception(String.format("There is no %s in your inventory", thing));
+			throw new Exception(String.format("There is no %s in here", thing));
 	
 		}
 	
@@ -30,7 +30,7 @@ public class State {
 
 		if (inventory.contains(thing)) {
 			// we will throw an error
-			// throw new Exception("You already have this item");
+			throw new Exception("You already have this item");
 		
 		} else {
 

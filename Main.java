@@ -4,11 +4,21 @@ public class Main {
 
 	public static void main(String[] args) {
 			
-		List<String> stuff = new ArrayList<>();
-		stuff.add("Chicken");
-		// stuff.add("")
 
-		System.out.println(stuff);
+		Player me = new Player(new String[] {"Bicycle", "Orange", "Jupiter"});
+
+		System.out.println(me.getThings());
+
+		try {
+
+			me.addThing("Orange");
+
+		} catch(Exception e) {
+
+			System.out.println(e.getMessage());
+
+		}
 
 	}
+
 }

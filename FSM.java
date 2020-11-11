@@ -13,5 +13,11 @@ public class FSM {
 
 	}
 
+	public State getState() {
+
+		return this.currentState;
+	
+	}
+
 
 } //class
