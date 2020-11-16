@@ -2,12 +2,12 @@ import java.util.*;
 
 public class Player {
 
-	private List <String> inventory;
+	private List <Item> inventory;
 
-	public Player (String[] initialThings) {
+	public Player (Item[] initialThings) {
 
 		inventory = new LinkedList<>();
-		for (String item: initialThings) {
+		for (Item item: initialThings) {
 
 			inventory.add(item);
 		
@@ -21,7 +21,7 @@ public class Player {
 	
 	}
 
-	public void removeThing(String thing) throws Exception{
+	public void removeThing(Item thing) throws Exception{
 
 		if (!inventory.contains(thing)) {
 
@@ -33,9 +33,9 @@ public class Player {
 		
 		}
 
-	}
+	} // removeThing
 
-	public void addThing(String thing) throws Exception {
+	public void addThing(Item thing) throws Exception {
 
 		if (inventory.contains(thing)) {
 
@@ -47,9 +47,9 @@ public class Player {
 	
 		}
 
-	}
+	} // addThings
 
-	public boolean hasThing(String item) {
+	public boolean hasThing(Item item) {
 
 		return inventory.contains(item);
 

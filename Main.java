@@ -4,23 +4,26 @@ public class Main {
 
 	public static void main(String[] args) {			
 
-		Player me = new Player(new String[] {"Bicycle", "Orange", "Jupiter"});
+		Game game = new Game();
+		game.runGameLoop();
 
-		System.out.println(me.getThings());
+		// Player me = new Player(new String[] {"Bicycle", "Orange", "Jupiter"});
 
-		try {
+		// System.out.println(me.getThings());
 
-			me.addThing("Orange");
+		// try {
 
-		} catch(Exception e) {
+		// 	me.addThing("Orange");
 
-			System.out.println(e.getMessage());
+		// } catch(Exception e) {
 
-		}
+		// 	System.out.println(e.getMessage());
+
+		// }
+
 		
-		
-		Scanner in = new Scanner(System.in);
-		System.out.println("This is working");
+		// Scanner in = new Scanner(System.in);
+		// System.out.println("This is working");
 	}
 
 }

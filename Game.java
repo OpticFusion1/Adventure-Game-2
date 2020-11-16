@@ -3,7 +3,10 @@ import java.util.*;
 public class Game {
 
     public static final String[] DIRECTIONS = new String[] {"north", "east", "south", "west"};
-    public static final String[] PLAYER_INIT_INVENTORY = new String[] {"torch", "matches", "knife", "book"};
+    public static final Item[] PLAYER_INIT_INVENTORY = new Item[] { new Item("torch"),
+                                                                    new Item("matches"),
+                                                                    new Item("knife"),
+                                                                    new Item("book")};
 
     private FSM theFSM;
     private Player thePlayer;
@@ -28,10 +31,10 @@ public class Game {
 
         State[] States = {
 
-            new State("You are in a room with a big zero painted on the floor.", new String[] {"keys", "iPad"}),
-            new State("You are in a bright yellow room." , new String[] {}),
-            new State("This is a round room" , new String[] {}),
-            new State("As you enter the room a rockfail closes the entrance", new String[]{})
+            new State("You are in a room with a big zero painted on the floor.", new Item[] { new Item("keys"), new Item("iPad")}),
+            new State("You are in a bright yellow room." , new Item[] {}),
+            new State("This is a round room" , new Item[] {}),
+            new State("As you enter the room a rockfail closes the entrance", new Item[]{})
         };
 
         FSM result = new FSM(States, transitionTable, DIRECTIONS);
@@ -97,8 +100,12 @@ public class Game {
 
             }
 
-            if (verbNeedsAnObject) theObject = words[1];
+            if (verbNeedsAnObject) {
 
+                theObject = words[1];
+            } 
+            Item theItem = new Item(theObject);  
+    
             try {
 
                 switch(theVerb) {
@@ -118,14 +125,16 @@ public class Game {
                         break;
 
                     case "drop":
-                        thePlayer.removeThing(theObject);
-                        theFSM.getState().addThing(theObject);
+
+                        thePlayer.removeThing(theItem);
+                        theFSM.getState().addThing(theItem);
                         System.out.println("OK");
                         break;
 
                     case "take":
-                        theFSM.getState().removeThing(theObject);
-                        thePlayer.addThing(theObject);
+
+                        theFSM.getState().removeThing(theItem);
+                        thePlayer.addThing(theItem);
                         System.out.println("OK");
                         break;
 
@@ -136,7 +145,7 @@ public class Game {
                     case "read":
                         if (theObject.equals("book")) {
                             
-                            if (thePlayer.hasThing(theObject) || theFSM.getState().hasThing(theObject)) {
+                            if (thePlayer.hasThing(theItem) || theFSM.getState().hasThing(theItem)) {
                              
                                 System.out.println("The title is 'Think Java'. It looks quite boring!");
                             
@@ -164,7 +173,6 @@ public class Game {
             
             }
         
-            in.close();
         }// runGameLoop
 
 

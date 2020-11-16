@@ -3,20 +3,20 @@ import java.util.*;
 public class State {
 
 	private String description;
-	private List<String> inventory;
+	private List<Item> inventory;
 
-	public State(String theDescription, String[] initalThings) {
+	public State(String theDescription, Item[] initalThings) {
 
 		description = theDescription;
 		inventory = new LinkedList<>();
 
-		for (String item: initalThings) {
+		for (Item item: initalThings) {
 			inventory.add(item);
 		}
 
 	}
 
-	public void removeThing(String thing) throws Exception {
+	public void removeThing(Item thing) throws Exception {
 
 		if (!inventory.contains(thing)) {
 
@@ -30,7 +30,7 @@ public class State {
 	
 	}
 
-	public void addThing(String thing) throws Exception {
+	public void addThing(Item thing) throws Exception {
 
 		if (inventory.contains(thing)) {
 			// we will throw an error
@@ -63,10 +63,10 @@ public class State {
 
 	} //getDescription
 
-	public boolean hasThing(String thing) {
+	public boolean hasThing(Item thing) {
 
 		return inventory.contains(thing);
 
-	} // hasThing
+	}// hasThing
 
 } //class State
